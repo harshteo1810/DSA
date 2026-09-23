@@ -4,28 +4,28 @@ public:
         int n = matrix.size();
         int m = matrix[0].size();
         vector<int> ans;
-        int top = 0, bottom = n-1, right = m-1, left = 0;
-        while(top<=bottom && left<=right){
-            // right
-            for(int i=left;i<=right;i++){
+        int top = 0, bottom = n - 1, right = m - 1, left = 0;
+        while (top <= bottom && left <= right) {
+            // left->right
+            for (int i = left; i <= right; i++) {
                 ans.push_back(matrix[top][i]);
             }
-            //bottom
+            // top->bottom
             top++;
-            for(int i=top;i<=bottom;i++){
+            for (int i = top; i <= bottom; i++) {
                 ans.push_back(matrix[i][right]);
             }
-            //left
+            // right->left
             right--;
-            if(top<=bottom){
-                for(int i= right;i>=left;i--){
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
                     ans.push_back(matrix[bottom][i]);
                 }
             }
-            //top
+            // top
             bottom--;
-            if(left<=right){
-                for(int i=bottom;i>=top;i--){
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
                     ans.push_back(matrix[i][left]);
                 }
             }
