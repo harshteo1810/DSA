@@ -4,7 +4,7 @@ public:
         vector<vector<int>> ans(numRows);
         for(int i=0;i<numRows;i++){
             for(int j=0;j<=i;j++){
-                if(i>1 && j>0 && j!=i){
+                if(j>0 && j!=i){
                     int a = ans[i-1][j-1];
                     int b = ans[i-1][j];
                     ans[i].push_back(a+b);
