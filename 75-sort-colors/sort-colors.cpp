@@ -1,21 +1,21 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int n = nums.size();
-        int c1=0;
-        int c2=0;
-        for(int i:nums){
-            if(i==0){
-                c1++;
+        // also called dutch national flag
+        int n= nums.size();
+        int low=0,mid=0;
+        int high = n-1;
+        while(mid<=high){
+            if(nums[mid]==2){
+                swap(nums[mid],nums[high]);
+                high--;
             }
-            else if(i==1){
-                c2++;
+            else if(nums[mid]==0){
+                swap(nums[low],nums[mid]);
+                low++;
+                mid++;
             }
-        }
-        for(int i=0;i<n;i++){
-            if(c1>0){nums[i]=0; c1--;}
-            else if(c2>0){nums[i]=1; c2--;}
-            else nums[i]=2;
+            else mid++;
         }
     }
 };
